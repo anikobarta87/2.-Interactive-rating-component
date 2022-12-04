@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive rating component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+    <script>
+        window.onload = function selectRating (){
+        const ratings = document.querySelectorAll('.rating');
+        
+        ratings.forEach((rating)=>{
+        rating.addEventListener ('click', ()=>{
+        rating.focus();
+        let rateScore = document.getElementById('rate');
+        rateScore.innerHTML = rating.innerHTML;
+        //meg van a lenyomott rating gomb értéke, már csak ki kell íratni az input mezőbe
+        
+    });
+
+    
+        });
+
+
+    const submit = document.getElementById('submitbtn');
+    const thanks = document.getElementById('container2');
+    const rate = document.getElementById('container');
+    
+   
+   
+    
+    submit.addEventListener('click', () => {
+        thanks.classList.remove('firsthidden');
+        rate.classList.add('firsthidden');
+        
+   
+    
+    });
+    const ratebtn = document.getElementById('newratebtn');
+    ratebtn.addEventListener('click', ()=>{
+        thanks.classList.add('firsthidden');
+        rate.classList.remove('firsthidden');
+    });
+
+}
+    </script>
+</head>
+<body>
+    <main>
+        <div id="container">
+            <div class="icon">
+                <img src="./images/icon-star.svg" alt="staricon">
+            </div>
+            <div class="texts">
+            <h1>How did we do?</h1>
+            <p>Please let us know how we did with your support request. All feedback is appreciated 
+                to help us improve our offering!</p>
+            </div>
+            <div class="buttons">
+                <button class="rating" id="btn1" type="button">1</button>
+                <button class="rating" id="btn2" type="button">2</button>
+                <button class="rating" id="btn3" type="button">3</button>
+                <button class="rating" id="btn4" type="button">4</button>
+                <button class="rating" id="btn5" type="button">5</button>
+            </div>
+            <div id="submitbtn">
+                <button type="button">SUBMIT</button>
+            </div>
+        </div>
+
+        <div id="container2" class="thankyou firsthidden">
+            <div class="divimg">
+                <img src="./images/illustration-thank-you.svg" alt="thankyou">
+            </div>
+            <div class="ratingtext">
+                <p>You selected <span id="rate"> </span> of 5</p>
+            </div>
+            <div class="thankyoutext">
+            <h1>Thank You!</h1>
+            <p>We appreciate you taking the time to give a rating. If you ever need more support, 
+                don’t hesitate to get in touch!</p>
+            </div>
+            <div id="newratebtn">
+                <button type="button">Rate again</button>
+            </div>
+        </div>
+    </main>
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Anikó Asztalos-Barta</a>.
+      </div>
+</body>
+</html>
